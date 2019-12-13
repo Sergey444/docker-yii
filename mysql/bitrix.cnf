@@ -1,0 +1,29 @@
+[mysqld]
+default-time-zone="+05:00"
+character-set-server=utf8
+collation-server=utf8_general_ci
+
+# Пример рекомендуемых настроек для сервера с 2 Гб оперативной памяти
+#table_cache=409
+table_cache=200
+
+# Основной буфер - чем больше, тем лучше.
+innodb_buffer_pool_size=1024M
+
+# Вспомогательный буфер на внутренние структуры, большой делать не имеет смысла.
+innodb_log_file_size=128M
+
+# Отложенная фиксация транзакций, раз в секунду
+tmp_table_size=32m
+
+# Рекомендуется так же увеличивать join_buffer_size до 2 Мб, это существенно влияет на скорость выполнения ряда запросов.
+join_buffer_size = 2M
+
+transaction-isolation=READ-COMMITTED
+query_cache_limit=512
+tmp_table_size=64
+max_heap_table_size=64
+
+[galera]
+# Для сокращения времени ответа сервера можно использовать отложенные транзакции и, в частности, устанавливать переменную
+innodb_flush_log_at_trx_commit=0
