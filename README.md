@@ -11,7 +11,7 @@
   docker-compose up
   docker-compose down
 ```
-## Данные для соединения с базой данных
+## Данные для соединения с базой данных db.php
 
 ```bash
    return [
